@@ -1,0 +1,6 @@
+bg-colour: #0D1117
+card-colour: #0E1722
+primary-text-colour: #ffffff
+input-form-colour: #0D1117
+primary-btn: #0C0C2B
+secondary-text-colour: #3232B8
