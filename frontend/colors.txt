@@ -3,4 +3,6 @@ card-colour: #0E1722
 primary-text-colour: #ffffff
 input-form-colour: #0D1117
 primary-btn: #0C0C2B
+header colour: #111827
 secondary-text-colour: #3232B8
+aside & header colour: #1E1E43

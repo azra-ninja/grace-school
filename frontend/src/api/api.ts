@@ -38,3 +38,7 @@ export const loginUser = async (data: LoginInput) => {
   const res = await api.post<UserResponse>("/auth/sign-in", data);
   return res.data;
 }
+
+// export const getUser = async () => {
+//   const res = await api.
+// }
