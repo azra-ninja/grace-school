@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import PublicLayout from "./layout/PublicLayout";
 import DashboardLayout from "./layout/DashboardLayout";
-import User from "./pages/User";
+import User from "./pages/Users";
 import Student from "./pages/Student";
 
 function App() {

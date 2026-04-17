@@ -1,7 +1,13 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 // DashboardLayout.tsx
 const DashboardLayout = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  }
   return (
     <div className="flex min-h-screen bg-[#0D1117] text-white">
       {/* Sidebar */}
@@ -21,7 +27,7 @@ const DashboardLayout = () => {
         <header className="h-16 bg-[#111827] flex items-center justify-between px-6">
           <h1 className="text-lg font-semibold">Welcome</h1>
 
-          <button className="bg-red-500 px-3 py-1 rounded">Logout</button>
+          <button className="bg-red-500 px-3 py-1 rounded" onClick={handleLogout}>Logout</button>
         </header>
 
         {/* Content */}

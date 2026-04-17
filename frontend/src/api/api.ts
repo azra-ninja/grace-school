@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/constants";
-import type { LoginInput, RegisterInput, UserResponse } from "../types/User";
+import type { LoginInput, RegisterInput, User, UserResponse } from "../types/User";
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -39,6 +39,7 @@ export const loginUser = async (data: LoginInput) => {
   return res.data;
 }
 
-// export const getUser = async () => {
-//   const res = await api.
-// }
+export const getUsers = async (): Promise<User[]> => {
+  const res = await api.get<User[]>("/user");
+  return res.data;
+}
