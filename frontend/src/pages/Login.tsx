@@ -42,7 +42,7 @@ const Login = () => {
             type="submit"
             className="w-full bg-[#0C0C2B] hover:bg-blue-600 p-2 rounded mb-4"
           >
-            {isPending ? "Loading" : "Login"}
+            {isPending ? "Loading..." : "Login"}
           </button>
 
           {error && (

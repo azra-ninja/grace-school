@@ -6,8 +6,10 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import PublicLayout from "./layout/PublicLayout";
 import DashboardLayout from "./layout/DashboardLayout";
-import User from "./pages/Users";
+import Users from "./pages/Users";
 import Student from "./pages/Student";
+import UpdateUser from "./pages/UpdateUser";
+import CreateUser from "./pages/CreateUser";
 
 function App() {
   return (
@@ -25,8 +27,10 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/users" element={<User />} />
+            <Route path="/users" element={<Users />} />
             <Route path="/students" element={<Student />} />
+            <Route path="/users/create" element={<CreateUser />} />
+            <Route path="/users/update/:id" element={<UpdateUser />} />
           </Route>
         </Route>
       </Routes>

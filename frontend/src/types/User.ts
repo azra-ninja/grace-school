@@ -9,6 +9,12 @@ export interface LoginInput {
   password: string;
 }
 
+export interface UpdateInput {
+  name: string;
+  email: string;
+  password: string;
+}
+
 export interface UserResponse {
   token: string;
 }

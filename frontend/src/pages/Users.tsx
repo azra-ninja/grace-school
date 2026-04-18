@@ -1,16 +1,20 @@
+import { Link } from "react-router-dom";
 import useGetUsers from "../query/useGetUsers";
 import type { User } from "../types/User";
 
-const User = () => {
+const Users = () => {
   const { data: users, isLoading, error } = useGetUsers();
   return (
     <div className="overflow-x-auto">
-      {isLoading ? "Loading..." : "No users"}
+      <div className="flex justify-end">
+        <Link to="/users/create" className="bg-green-600 p-3 rounded-xl hover:bg-green-500">Create a New User</Link>
+      </div>
+
+      {isLoading ? "Loading..." : null}
       {error && (
         <p className="text-red-500 text-sm">
           {(error as any)?.response?.data?.message ||
-            "Something went wrong" ||
-            console.log(error)}
+            "Something went wrong"}
         </p>
       )}
 
@@ -20,6 +24,7 @@ const User = () => {
             <th>#</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Update & Delete</th>
           </tr>
         </thead>
         <tbody className="[&>tr:nth-child(odd)]:bg-base-200">
@@ -28,6 +33,10 @@ const User = () => {
               <th>{ index + 1 }</th>
               <td>{user?.name}</td>
               <td>{user?.email}</td>
+              <td>
+                <Link to={`/users/update/${user._id}`} className="bg-yellow-500 p-3 m-2 rounded-lg hover:bg-yellow-400">Update</Link>
+                <button className="bg-red-600 p-3 m-2 rounded-lg hover:bg-red-500">Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -36,4 +45,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default Users;
