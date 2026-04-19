@@ -51,18 +51,18 @@ const CreateUser = () => {
           />
 
           <div className="flex">
-            <button
-              type="submit"
-              className="m-2 w-full bg-[#0C0C2B] hover:bg-blue-600 p-2 rounded mb-4"
-            >
-              {isPending ? "Loading..." : "Submit"}
-            </button>
             <Link
               to="/users"
               className="m-2 w-full bg-red-600 hover:bg-red-500 p-2 rounded mb-4 text-center"
             >
               Cancel
             </Link>
+            <button
+              type="submit"
+              className="m-2 w-full bg-[#0C0C2B] hover:bg-blue-600 p-2 rounded mb-4"
+            >
+              {isPending ? "Loading..." : "Submit"}
+            </button>
           </div>
 
           {error && (

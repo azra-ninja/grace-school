@@ -64,7 +64,12 @@ export const createUser = async (data: RegisterInput) => {
 }
 
 // Update user function
-export const updateUser = async(id: string, data: Partial<UpdateInput>) => {
+export const updateUser = async (id: string, data: Partial<UpdateInput>) => {
   const res = await api.put(`/user/${id}`, data);
   return res.data as UpdateInput;
+}
+
+// Delete user function
+export const deleteUser = async (id: string): Promise<void> => {
+  await api.delete(`/user/${id}`);
 }
