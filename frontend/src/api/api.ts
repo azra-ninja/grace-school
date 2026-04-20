@@ -1,6 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/constants";
 import type { LoginInput, RegisterInput, UpdateInput, User, UserResponse } from "../types/User";
+import type { Student, StudentInput } from "../types/Student";
 
 // axios instance
 const api = axios.create({
@@ -52,8 +53,8 @@ export const getUsers = async (): Promise<User[]> => {
 }
 
 // Get a single user function
-export const getUser = async (id: string): Promise<User[]> => {
-  const res = await api.get<User[]>(`/user/${id}`);
+export const getUser = async (id: string): Promise<User> => {
+  const res = await api.get<User>(`/user/${id}`);
   return res.data;
 }
 
@@ -72,4 +73,34 @@ export const updateUser = async (id: string, data: Partial<UpdateInput>) => {
 // Delete user function
 export const deleteUser = async (id: string): Promise<void> => {
   await api.delete(`/user/${id}`);
+}
+
+// Student api functions
+// Get all users function
+export const getStudents = async (): Promise<Student[]> => {
+  const res = await api.get<Student[]>("/student");
+  return res.data;
+}
+
+// Get a single user function
+export const getStudent = async (id: string): Promise<Student> => {
+  const res = await api.get<Student>(`/student/${id}`);
+  return res.data;
+}
+
+// Update user function
+export const updateStudent = async (id: string, data: Partial<Student>) => {
+  const res = await api.put(`/student/${id}`, data);
+  return res.data as Student;
+}
+
+// Create user function
+export const createStudent = async (data: StudentInput) => {
+  const res = await api.post("/student", data);
+  return res.data;
+}
+
+// Delete user function
+export const deleteStudent = async(id: string): Promise<void> => {
+  await api.delete(`/student/${id}`);
 }

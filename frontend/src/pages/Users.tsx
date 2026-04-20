@@ -8,12 +8,12 @@ const Users = () => {
   const { mutate, isPending } = useDeleteUser();
 
   const handleDeleteUser = (id: string, name: string) => {
-    const confirmDelete  = window.confirm(`Are you sure want to delete ${name}`);
+    const confirmDelete = window.confirm(`Are you sure want to delete ${name}`);
 
     if (confirmDelete) {
       mutate(id);
     }
-  }
+  };
   return (
     <div className="overflow-x-auto">
       <div className="flex justify-end">
@@ -54,7 +54,10 @@ const Users = () => {
                 >
                   Update
                 </Link>
-                <button onClick={() => handleDeleteUser(user._id, user.name)} className="bg-red-600 p-3 m-2 rounded-lg hover:bg-red-500">
+                <button
+                  onClick={() => handleDeleteUser(user._id, user.name)}
+                  className="bg-red-600 p-3 m-2 rounded-lg hover:bg-red-500"
+                >
                   {isPending ? "Deleting..." : "Delete"}
                 </button>
               </td>

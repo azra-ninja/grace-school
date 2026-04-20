@@ -7,9 +7,11 @@ import Dashboard from "./pages/Dashboard";
 import PublicLayout from "./layout/PublicLayout";
 import DashboardLayout from "./layout/DashboardLayout";
 import Users from "./pages/Users";
-import Student from "./pages/Student";
+import Students from "./pages/Students";
 import UpdateUser from "./pages/UpdateUser";
 import CreateUser from "./pages/CreateUser";
+import CreateStudent from "./pages/CreateStudent";
+import UpdateStudent from "./pages/UpdateStudent";
 
 function App() {
   return (
@@ -27,10 +29,14 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            {/* User Routes */}
             <Route path="/users" element={<Users />} />
-            <Route path="/students" element={<Student />} />
             <Route path="/users/create" element={<CreateUser />} />
             <Route path="/users/update/:id" element={<UpdateUser />} />
+            {/* Student Routes */}
+            <Route path="/students" element={<Students />} />
+            <Route path="/students/create" element={<CreateStudent />} />
+            <Route path="/students/update/:id" element={<UpdateStudent />} />
           </Route>
         </Route>
       </Routes>
